@@ -20,6 +20,7 @@ public class CommentService {
     @Autowired
     private ArticleRepository articleRepository; //게시글 레파지토리 주입
 
+
     // 댓글 조회
     public List<CommentDto> comments(Long articleId) {
 /*        //1. 댓글 조회
@@ -67,8 +68,21 @@ public class CommentService {
         //기존 댓글 엔티티에 수정 정보를 추가
         //3. DB로 갱신
         Comment updated = commentRepository.save(target);
-        //4. 댓글 엔티티를 DTO로 변횐 및 반환
+        //4. 댓글 엔티티를 DTO로 변환 및 반환
         return CommentDto.createCommentDto(updated);
     }
+
+    // 댓글 삭제
+    @Transactional
+    public CommentDto delete(Long id) {
+        //1. 댓글 조회 및 예외 발생
+        Comment target = commentRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("댓글 삭제 실패! " + "대상 댓글이 없습니다"));
+        //2. 댓글 삭제
+        commentRepository.delete(target);
+        //3. 삭제 댓글을 DTO로 변환 및 반환
+        return CommentDto.createCommentDto(target);
+    }
+
 
 }

@@ -28,7 +28,7 @@ public class CommentApiController {
     //2. 댓글 생성
     @PostMapping("/api/articles/{articleId}/comments")
     public ResponseEntity<CommentDto> create(@PathVariable Long articleId,
-                                             @RequestBody CommentDto dto) { //이 어노테이션은 json으 자바객체로 변환해줌
+                                             @RequestBody CommentDto dto) { //@RequestBody은 json을 자바객체로 변환해줌
         //서비스에 위임
         CommentDto createdDto = commentService.create(articleId, dto);
         //결과 응답
@@ -44,7 +44,15 @@ public class CommentApiController {
         //결과 응답
         return ResponseEntity.status(HttpStatus.OK).body(updatedDto);
     }
+
     //4. 댓글 삭제
+    @DeleteMapping("/api/comments/{id}")
+    public ResponseEntity<CommentDto> delete(@PathVariable Long id) {
+        //서비스 위임
+        CommentDto deletedDto = commentService.delete(id);
+        //결과 응답
+        return ResponseEntity.status(HttpStatus.OK).body(deletedDto);
+    }
 }
 // 1. 댓글 조회 참고 사항
 // DB에서 조회한 댓글 엔티티 묶음은<List<Comment>지만,
