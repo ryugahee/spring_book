@@ -59,7 +59,8 @@ public class ArticleApiController {
     }
 
     @PostMapping("/api/transaction-test")
-    public ResponseEntity<List<Article>> transactionTest(@RequestBody List<ArticleForm> dtos) {
+    public ResponseEntity<List<Article>> transactionTest
+            (@RequestBody List<ArticleForm> dtos) {
         List<Article> createdList = articleService.createArticles(dtos);
         return (createdList != null) ?
                 ResponseEntity.status(HttpStatus.OK).body(createdList) :

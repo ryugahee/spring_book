@@ -1,3 +1,13 @@
 INSERT INTO article(title, content) VALUES ('가가가가', '1111');
 INSERT INTO article(title, content) VALUES ('나나나나', '2222');
 INSERT INTO article(title, content) VALUES ('다다다다', '3333');
+INSERT INTO article(title, content) VALUES ('당신의 인생 영화는?', '댓글고고');
+INSERT INTO article(title, content) VALUES ('당신의 인생 푸드는?', '댓글고고염');
+INSERT INTO article(title, content) VALUES ('당신의 취미는?', '댓고');
+INSERT INTO comment(article_id, nickname, body) VALUES ('4','Park' ,'타이타닉');
+INSERT INTO comment(article_id, nickname, body) VALUES ('4','Kim', '라푼젤');
+INSERT INTO comment(article_id, nickname, body) VALUES ('4','Ryu', '해리포터');
+INSERT INTO comment(article_id, nickname, body) VALUES ('5','Ryu', '치킨');
+INSERT INTO comment(article_id, nickname, body) VALUES ('5','Choi', '마라탕');
+INSERT INTO comment(article_id, nickname, body) VALUES ('6','Park', '발레');
+INSERT INTO comment(article_id, nickname, body) VALUES ('6','Kim', '음악감상');
