@@ -10,3 +10,4 @@
 - **JDK** : java 17
 - **framework** : 스프링 부트 3.1.4
 - **database** : h2
+- gradle
